@@ -26,6 +26,10 @@ namespace Mission09_jhalver6.Infrastructure
         public ViewContext vc { get; set; }
         public PageInfo PageModel { get; set; }
         public string PageAction { get; set; }
+        public bool PageClassesEnabled { get; set; } = false;
+        public string PageClass { get; set; }
+        public string PageClassNormal { get; set; }
+        public string PageClassSelected { get; set; }
        
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

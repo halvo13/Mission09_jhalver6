@@ -9,25 +9,24 @@
 <h1>Jake's Books</h1>
 @foreach (Book i in Model.Books)
 {
-<div class="card card-outline-prima1">
-    <div>
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
         <h3>@i.Title</h3>
+            <ul>
+                <li>Author: @i.Author</li>
+                <li>Publisher: @i.Publisher</li>
+                <li>ISBN: @i.Isbn</li>
+                <li>Classification: @i.Classification</li>
+                <li>Category: @i.Category</li>
+                <li>Number of Pages: @i.PageCount</li>
+                <li>Price: @i.Price</li>
 
-        <ul>
-            <li>Author: @i.Author</li>
-            <li>Publisher: @i.Publisher</li>
-            <li>ISBN: @i.Isbn</li>
-            <li>Classification: @i.Classification</li>
-            <li>Category: @i.Category</li>
-            <li>Number of Pages: @i.PageCount</li>
-            <li>Price: @i.Price</li>
-        </ul>
-
-        <br />
+            </ul>
+            <br />
     </div>
 </div>
 
 }
 
-<div page-model="@Model.PageInfo" page-action="Index"></div>
+<div page-model="@Model.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
 
