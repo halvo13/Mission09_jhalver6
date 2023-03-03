@@ -42,6 +42,13 @@ namespace Mission09_jhalver6.Infrastructure
                 TagBuilder tb = new TagBuilder("a");
 
                 tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                
+                if(PageClassesEnabled)
+                {
+                    tb.AddCssClass(PageClass);
+                    tb.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
+                }
+
                 tb.InnerHtml.Append(i.ToString());
 
                 final.InnerHtml.AppendHtml(tb);
@@ -49,5 +56,7 @@ namespace Mission09_jhalver6.Infrastructure
 
             output.Content.AppendHtml(final.InnerHtml);
         }
+
+
     }
 }
