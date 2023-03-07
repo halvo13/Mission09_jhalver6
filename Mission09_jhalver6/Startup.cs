@@ -51,6 +51,21 @@ namespace Mission09_jhalver6
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage",
+                    "{BookCategory}/Page{pageNum}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("type",
+                    "{BookCategory}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
+
+
                 endpoints.MapDefaultControllerRoute();
             });
         }

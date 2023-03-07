@@ -16,13 +16,14 @@ namespace Mission09_jhalver6.Controllers
         {
             repo = temp;
         }
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string BookCategory, int pageNum = 1)
         {
             int pageSize = 10;
 
             var x = new BooksViewModel
             {
                 Books = repo.Books
+                .Where(p => p.Category == BookCategory || BookCategory == null)
                 .OrderBy(p => p.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
