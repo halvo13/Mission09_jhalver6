@@ -30,7 +30,10 @@ namespace Mission09_jhalver6.Controllers
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    TotalNumBooks = 
+                        (BookCategory == null 
+                            ? repo.Books.Count() 
+                            : repo.Books.Where(x => x.Category == BookCategory).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }
