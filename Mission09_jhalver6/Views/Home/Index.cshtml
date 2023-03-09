@@ -5,8 +5,21 @@
 
 }
 @model BooksViewModel
-<div class="bg-opacity-25 bg-black">
-    <h1>Jake's Books</h1>
+<div class="bg-opacity-25 bg-black m-4 p-3">
+    <h1 class="jumbotron text-center">Jake's Books</h1>
+    <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+            Toggle width collapse
+        </button>
+    </p>
+    <div style="min-height: 120px;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+            <div class="card card-body" style="width: 300px;">
+                This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+            </div>
+        </div>
+    </div>
+
     @foreach (Book i in Model.Books)
     {
         <partial name="BookSummary" model="i" />
@@ -14,3 +27,5 @@
 
     <div page-model="@Model.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
 </div>
+
+<script src="~/lib/js/bootstrap.min.js"></script>
