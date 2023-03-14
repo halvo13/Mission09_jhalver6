@@ -8,7 +8,7 @@ namespace Mission09_jhalver6.Models
     public class Cart
     {
         public List<CartLineItem> Items { get; set; } = new List<CartLineItem>();
-        public void AddItem (Book book, int qty, double price)
+        public virtual void AddItem (Book book, int qty, double price)
         {
             CartLineItem line = Items
                 .Where(b => b.Book.BookId == book.BookId)
@@ -30,11 +30,20 @@ namespace Mission09_jhalver6.Models
                 
         }
 
+        public virtual void RemoveItem(Book book)
+        {
+            Items.RemoveAll(x => x.Book.BookId == book.BookId);
+        }
+
+        public virtual void ClearCart()
+        {
+            Items.Clear();
+        }
         public double CalculateTotal()
         {
             double total = 0.0;
             foreach (CartLineItem item in Items)
-                total += item.Price;
+                total += (item.Price * item.Quantity);
             return total;
         }
     }
