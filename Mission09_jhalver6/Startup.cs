@@ -35,6 +35,8 @@ namespace Mission09_jhalver6
             });
 
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<ICheckoutRepository, EFCheckoutRepository>();
+
             services.AddRazorPages();
 
             services.AddDistributedMemoryCache();
