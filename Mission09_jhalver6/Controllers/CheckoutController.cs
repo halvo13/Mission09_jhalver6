@@ -35,7 +35,7 @@ namespace Mission09_jhalver6.Controllers
                 repo.SaveCheckout(checkout);
                 cart.ClearCart();
 
-                return RedirectToPage("/Confirmation");
+                return View();
             }
             else
             {
